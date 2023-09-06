@@ -19,16 +19,14 @@ import imagesize
 YOLO_DARKNET_SUB_DIR = "YOLO_darknet"
 
 classes = [
-    "chair",
-    "handle",
-    "table",
-    "button",
-    "person",
+    "cow_lying",
+    "cow_standing"
 ]
 
 
 def get_images_info_and_annotations(opt):
     path = Path(opt.path)
+    print(path)
     annotations = []
     images_annotations = []
     if path.is_dir():
@@ -100,7 +98,7 @@ def get_images_info_and_annotations(opt):
                 category_id,
                 annotation_id,
                 segmentation=opt.box2seg,
-                conf = conf
+                conf = None
             )
             annotations.append(annotation)
             annotation_id += 1
